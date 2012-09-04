@@ -14,6 +14,6 @@ app.get('/', function(req, res) {
   })
 })
 
-//app.listen(process.env.VMC_APP_PORT || 1377, null)
-app.listen(3030)
+app.listen(process.env.VMC_APP_PORT || 1377, null)
+//app.listen(3030)
 
