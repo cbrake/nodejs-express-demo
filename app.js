@@ -13,9 +13,7 @@ app.configure(function() {
 })
 
 app.get('/', function(req, res) {
-  fs.readFile(__dirname + '/public/index.html', 'utf8', function(err, text) {
-    res.send(text)
-  })
+  res.sendfile(__dirname + '/public/' + 'index.html');
 })
 
 app.get('/send-mail', function(req, res) {
@@ -38,6 +36,9 @@ app.get('/send-mail', function(req, res) {
   })
 })
 
-app.listen(process.env.VMC_APP_PORT || 1377, null)
-//app.listen(3030)
+
+
+//app.listen(process.env.VMC_APP_PORT || 1377, null)
+console.log("listen on port 3030")
+app.listen(3030)
 
