@@ -9,15 +9,13 @@ var app = express()
 // this is required to parse the body of HTML POSTs, etc
 app.use(express.bodyParser()) 
 
+app.set("view options", {layout: false});
+app.use(express.static(__dirname + '/public'));
+
 var transport = nodemailer.createTransport(config.email.transport.type, config.email.transport.options)
 
-app.configure(function() {
-  app.use(app.router)
-  app.use('/', express.static(__dirname + '/public'))
-})
-
 app.get('/', function(req, res) {
-  res.sendfile(__dirname + '/public/' + 'index.html');
+  res.render('index.html');
 })
 
 app.post('/send-mail', function(req, res) {
